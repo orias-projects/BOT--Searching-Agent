@@ -1,0 +1,399 @@
+# ============================================================================
+# Python
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+test-results/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================================================
+# IDE & Editors
+# ============================================================================
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================================================
+# Operating System
+# ============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# Project Specific
+# ============================================================================
+
+# Private files
+private/
+secrets/
+
+# Model files (large binary files)
+models/*
+!models/.gitkeep
+!models/configs/
+*.bin
+*.h5
+*.ckpt
+*.safetensors
+
+# Logs
+logs/
+*.log
+log/
+*.log.*
+
+# Database dumps
+*.sql
+*.dump
+*.backup
+backups/
+dumps/
+
+# Uploads
+uploads/
+temp/
+tmp/
+*.tmp
+
+# Cache
+.cache/
+*.cache
+
+# Data files (exclude from git)
+data/
+datasets/
+*.csv
+*.json
+*.jsonl
+*.parquet
+
+# Exceptions - allow specific files
+!databases/.sql/*.sql
+!configs/*.json
+!docs/**/*.json
+
+# Documents (PDFs might be large)
+documents/*.pdf
+documents/*.docx
+documents/*.doc
+
+# PostgreSQL
+*.pgdata
+pgdata/
+
+# Docker (if applicable)
+.dockerignore
+
+# ============================================================================
+# Security
+# ============================================================================
+
+# Never commit secrets
+.env
+.env.*
+!.env.example
+secrets.*
+*.key
+*.pem
+*.cer
+*.crt
+*.p12
+credentials.json
+service-account.json
+
+# ============================================================================
+# Build & Deployment
+# ============================================================================
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Deployment
+deployment/production.env
+deployment/secrets/
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Compressed files (unless needed)
+# *.zip
+# *.tar
+# *.tar.gz
+# *.rar
+# *.7z
+
+# Node (if using JS tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# ============================================================================
+# Keep these directories (create if not exist)
+# ============================================================================
+
+# !logs/.gitkeep
+# !uploads/.gitkeep
+# !models/.gitkeep
+
+# --- normalized ignore rules ---
+# Secrets
+!.env.*.example
+.supabase_access_token
+.gitconfig
+# Dependencies / build
+.venv/
+*.pyc
+.target/
+bin/
+out/
+.dart_tool/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+vendor/
+*.class
+coverage/
+.next/
+.nuxt/
+.msversion/
+.agents/
+.claude/
+.cursor/
+.private/
+.Profile/
+*.dll
+*.exe
+
+# --- normalized ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+.supabase_access_token
+.gitconfig
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+target/
+bin/
+build/
+dist/
+out/
+.dart_tool/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.coverage
+coverage/
+.next/
+.nuxt/
+*.log
+.msversion/
+.agents/
+.claude/
+.cursor/
+.private/
+*.dll
+*.exe
+*.class
+vendor/
