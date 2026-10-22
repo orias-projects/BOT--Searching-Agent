@@ -1,0 +1,272 @@
+/**
+ * Component styles - phong cách GitHub (Primer)
+ * Dùng kèm tokens.tss và github-components.css (cho hover/focus/transition)
+ */
+import { colors, fonts, fontSizes, fontWeights, lineHeights, delayTime, easing } from './tokens'
+
+const transitionFast = `${delayTime.fast}ms ${easing.easeOut}`
+const transitionNormal = `${delayTime.normal}ms ${easing.easeOut}`
+
+export const container = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100vh',
+}
+
+const baseButton = {
+  fontFamily: fonts.sansSerif,
+  fontWeight: fontWeights.medium,
+  fontSize: fontSizes.bodyMedium,
+  lineHeight: 1.42857,
+  cursor: 'pointer',
+  border: '1px solid transparent',
+  borderRadius: '6px',
+  outline: 'none',
+  transition: `background-color ${transitionFast}, border-color ${transitionFast}, box-shadow ${transitionFast}`,
+  userSelect: 'none',
+  whiteSpace: 'nowrap',
+  appearance: 'none',
+  boxSizing: 'border-box',
+}
+
+const buttonSize = {
+  small: { padding: '3px 12px', minHeight: '28px', fontSize: fontSizes.bodySmall },
+  medium: { padding: '5px 16px', minHeight: '32px', fontSize: fontSizes.bodyMedium },
+  large: { padding: '7px 20px', minHeight: '40px', fontSize: fontSizes.bodyLarge },
+}
+
+export const button = {
+  ...baseButton,
+  ...buttonSize.medium,
+}
+
+export const buttonPrimary = {
+  ...baseButton,
+  ...buttonSize.medium,
+  color: colors.btnPrimaryFg,
+  backgroundColor: colors.btnPrimaryRest,
+  borderColor: 'transparent',
+  boxShadow: 'inset 0px 1px 0px 0px rgba(0, 45, 17, 0.3)',
+}
+
+export const buttonDefault = {
+  ...baseButton,
+  ...buttonSize.medium,
+  color: colors.btnDefaultFg,
+  backgroundColor: colors.btnDefaultRest,
+  borderColor: colors.btnDefaultBorder,
+  boxShadow: '0px 1px 0px 0px rgba(31, 35, 40, 0.04)',
+}
+
+export const buttonDanger = {
+  ...baseButton,
+  ...buttonSize.medium,
+  color: colors.btnDangerFg,
+  backgroundColor: colors.btnDangerRest,
+  borderColor: 'transparent',
+  boxShadow: 'inset 0px 1px 0px 0px rgba(76, 0, 20, 0.2)',
+}
+
+export const buttonOutline = {
+  ...baseButton,
+  ...buttonSize.medium,
+  color: colors.btnOutlineFg,
+  backgroundColor: colors.btnOutlineRest,
+  borderColor: colors.btnOutlineBorder,
+}
+
+export const buttonInvisible = {
+  ...baseButton,
+  ...buttonSize.medium,
+  color: colors.btnDefaultFg,
+  backgroundColor: 'transparent',
+  borderColor: 'transparent',
+}
+
+export const buttonSmall = { ...baseButton, ...buttonSize.small }
+export const buttonLarge = { ...baseButton, ...buttonSize.large }
+export const buttonPrimarySmall = { ...buttonPrimary, ...buttonSize.small }
+export const buttonPrimaryLarge = { ...buttonPrimary, ...buttonSize.large }
+export const buttonDefaultSmall = { ...buttonDefault, ...buttonSize.small }
+export const buttonDefaultLarge = { ...buttonDefault, ...buttonSize.large }
+export const buttonDangerSmall = { ...buttonDanger, ...buttonSize.small }
+export const buttonDangerLarge = { ...buttonDanger, ...buttonSize.large }
+export const buttonOutlineSmall = { ...buttonOutline, ...buttonSize.small }
+export const buttonOutlineLarge = { ...buttonOutline, ...buttonSize.large }
+
+const controlBase = {
+  fontFamily: fonts.sansSerif,
+  fontSize: fontSizes.bodyMedium,
+  color: colors.controlFgRest,
+  outline: 'none',
+  transition: `border-color ${transitionFast}, background-color ${transitionFast}, box-shadow ${transitionNormal}`,
+  boxSizing: 'border-box',
+}
+
+export const switchTrack = {
+  ...controlBase,
+  width: 40,
+  height: 24,
+  borderRadius: 12,
+  backgroundColor: colors.controlBgRest,
+  border: `1px solid ${colors.controlBorderRest}`,
+  position: 'relative',
+  cursor: 'pointer',
+  flexShrink: 0,
+}
+
+export const switchTrackChecked = {
+  ...switchTrack,
+  backgroundColor: colors.controlCheckedBg,
+  borderColor: colors.controlCheckedBorder,
+}
+
+export const switchThumb = {
+  width: 20,
+  height: 20,
+  borderRadius: '50%',
+  backgroundColor: colors.bgDefault,
+  border: `1px solid ${colors.borderDefault}`,
+  boxShadow: colors.shadowRestingSmall,
+  position: 'absolute',
+  top: 1,
+  left: 1,
+  transition: `transform ${transitionFast}, left ${transitionFast}`,
+}
+
+export const switchThumbChecked = {
+  ...switchThumb,
+  left: 19,
+}
+
+export const checkbox = {
+  ...controlBase,
+  width: 16,
+  height: 16,
+  borderRadius: 3,
+  border: `1px solid ${colors.controlBorderRest}`,
+  backgroundColor: colors.controlBgRest,
+  cursor: 'pointer',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
+}
+
+export const checkboxChecked = {
+  ...checkbox,
+  backgroundColor: colors.controlCheckedBg,
+  borderColor: colors.controlCheckedBorder,
+  color: colors.bgDefault,
+}
+
+export const checkboxDisabled = {
+  ...checkbox,
+  backgroundColor: colors.controlBgDisabled,
+  borderColor: colors.borderMuted,
+  cursor: 'not-allowed',
+  opacity: 0.8,
+}
+
+export const selectbox = {
+  ...controlBase,
+  minWidth: 120,
+  minHeight: 32,
+  padding: '5px 8px 5px 12px',
+  paddingRight: 32,
+  backgroundColor: colors.controlBgRest,
+  border: `1px solid ${colors.controlBorderRest}`,
+  borderRadius: 6,
+  cursor: 'pointer',
+  appearance: 'none',
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2359636e' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'right 8px center',
+}
+
+export const selectboxDisabled = {
+  ...selectbox,
+  backgroundColor: colors.controlBgDisabled,
+  borderColor: colors.borderMuted,
+  color: colors.controlFgDisabled,
+  cursor: 'not-allowed',
+}
+
+export const input = {
+  ...controlBase,
+  minHeight: 32,
+  padding: '5px 12px',
+  backgroundColor: colors.controlBgRest,
+  border: `1px solid ${colors.controlBorderRest}`,
+  borderRadius: 6,
+  width: '100%',
+  maxWidth: 320,
+}
+
+export const inputDisabled = {
+  ...input,
+  backgroundColor: colors.controlBgDisabled,
+  borderColor: colors.borderMuted,
+  color: colors.controlFgDisabled,
+  cursor: 'not-allowed',
+}
+
+export const textCaption = {
+  fontFamily: fonts.sansSerif,
+  fontSize: fontSizes.caption,
+  fontWeight: fontWeights.normal,
+  lineHeight: lineHeights.caption,
+  color: colors.fgMuted,
+}
+
+export const textBody = {
+  fontFamily: fonts.sansSerif,
+  fontSize: fontSizes.bodyMedium,
+  fontWeight: fontWeights.normal,
+  lineHeight: lineHeights.bodyMedium,
+  color: colors.fgDefault,
+}
+
+export const textTitle = {
+  fontFamily: fonts.sansSerifDisplay,
+  fontSize: fontSizes.titleMedium,
+  fontWeight: fontWeights.semibold,
+  lineHeight: lineHeights.titleMedium,
+  color: colors.fgDefault,
+}
+
+export const styles = {
+  container,
+  button,
+  buttonPrimary,
+  buttonDefault,
+  buttonDanger,
+  buttonOutline,
+  buttonInvisible,
+  buttonSmall,
+  buttonLarge,
+  buttonPrimarySmall,
+  buttonPrimaryLarge,
+  buttonDefaultSmall,
+  buttonDefaultLarge,
+  buttonDangerSmall,
+  buttonDangerLarge,
+  buttonOutlineSmall,
+  buttonOutlineLarge,
+  switchTrack,
+  switchTrackChecked,
+  switchThumb,
+  switchThumbChecked,
+  checkbox,
+  checkboxChecked,
+  checkboxDisabled,
+  selectbox,
+  selectboxDisabled,
+  input,
+  inputDisabled,
+  textCaption,
+  textBody,
+  textTitle,
+}
