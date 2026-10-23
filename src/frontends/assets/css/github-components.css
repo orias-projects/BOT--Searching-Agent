@@ -1,0 +1,350 @@
+/**
+ * GitHub-style components - hover, focus, active, transition
+ * Dùng với class để có hiệu ứng đầy đủ (150ms/200ms, ease-out)
+ */
+
+/* ---- Tokens (CSS variables) ---- */
+:root {
+  --gh-duration-fast: 150ms;
+  --gh-duration-normal: 200ms;
+  --gh-ease: ease-out;
+  --gh-focus-outline: #0969da;
+  --gh-btn-primary-rest: #1f883d;
+  --gh-btn-primary-hover: #1c8139;
+  --gh-btn-primary-active: #197935;
+  --gh-btn-default-bg: #f6f8fa;
+  --gh-btn-default-hover: #f3f4f6;
+  --gh-btn-default-active: #e6eaef;
+  --gh-btn-default-border: #d1d9e0;
+  --gh-btn-danger-rest: #cf222e;
+  --gh-btn-danger-hover: #b62324;
+  --gh-btn-danger-active: #a40e26;
+  --gh-btn-outline-border: #d1d9e0;
+  --gh-btn-invisible-hover: rgba(31, 35, 40, 0.06);
+  --gh-control-bg: #f6f8fa;
+  --gh-control-border: #d1d9e0;
+  --gh-control-checked: #0969da;
+  --gh-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+}
+
+/* ---- Button base ---- */
+.gh-btn {
+  font-family: var(--gh-font-sans);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  outline: none;
+  transition: background-color var(--gh-duration-fast) var(--gh-ease),
+    border-color var(--gh-duration-fast) var(--gh-ease),
+    box-shadow var(--gh-duration-fast) var(--gh-ease);
+  user-select: none;
+  white-space: nowrap;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.gh-btn:focus-visible {
+  outline: 2px solid var(--gh-focus-outline);
+  outline-offset: 2px;
+}
+
+.gh-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Size */
+.gh-btn--sm {
+  padding: 3px 12px;
+  min-height: 28px;
+  font-size: 0.75rem;
+}
+
+.gh-btn--md {
+  padding: 5px 16px;
+  min-height: 32px;
+}
+
+.gh-btn--lg {
+  padding: 7px 20px;
+  min-height: 40px;
+  font-size: 1rem;
+}
+
+/* Primary */
+.gh-btn--primary {
+  color: #fff;
+  background-color: var(--gh-btn-primary-rest);
+  border-color: transparent;
+  box-shadow: inset 0 1px 0 0 rgba(0, 45, 17, 0.3);
+}
+
+.gh-btn--primary:hover:not(:disabled) {
+  background-color: var(--gh-btn-primary-hover);
+}
+
+.gh-btn--primary:active:not(:disabled) {
+  background-color: var(--gh-btn-primary-active);
+  box-shadow: inset 0 1px 0 0 rgba(0, 45, 17, 0.2);
+}
+
+.gh-btn--primary:disabled {
+  background-color: #95d8a6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Default */
+.gh-btn--default {
+  color: #25292e;
+  background-color: var(--gh-btn-default-bg);
+  border-color: var(--gh-btn-default-border);
+  box-shadow: 0 1px 0 0 rgba(31, 35, 40, 0.04);
+}
+
+.gh-btn--default:hover:not(:disabled) {
+  background-color: var(--gh-btn-default-hover);
+  border-color: var(--gh-btn-default-border);
+}
+
+.gh-btn--default:active:not(:disabled) {
+  background-color: var(--gh-btn-default-active);
+  border-color: rgba(31, 35, 40, 0.15);
+}
+
+.gh-btn--default:disabled {
+  background-color: #eff2f5;
+  border-color: var(--gh-btn-default-border);
+  color: #818b98;
+}
+
+/* Danger */
+.gh-btn--danger {
+  color: #fff;
+  background-color: var(--gh-btn-danger-rest);
+  border-color: transparent;
+  box-shadow: inset 0 1px 0 0 rgba(76, 0, 20, 0.2);
+}
+
+.gh-btn--danger:hover:not(:disabled) {
+  background-color: var(--gh-btn-danger-hover);
+}
+
+.gh-btn--danger:active:not(:disabled) {
+  background-color: var(--gh-btn-danger-active);
+  box-shadow: inset 0 1px 0 0 rgba(76, 0, 20, 0.33);
+}
+
+/* Outline */
+.gh-btn--outline {
+  color: #25292e;
+  background-color: transparent;
+  border-color: var(--gh-btn-outline-border);
+}
+
+.gh-btn--outline:hover:not(:disabled) {
+  background-color: var(--gh-btn-default-bg);
+  border-color: var(--gh-btn-outline-border);
+}
+
+.gh-btn--outline:active:not(:disabled) {
+  background-color: var(--gh-btn-default-active);
+  border-color: rgba(31, 35, 40, 0.15);
+}
+
+/* Invisible (ghost) */
+.gh-btn--invisible {
+  color: #25292e;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.gh-btn--invisible:hover:not(:disabled) {
+  background-color: var(--gh-btn-invisible-hover);
+}
+
+.gh-btn--invisible:active:not(:disabled) {
+  background-color: rgba(31, 35, 40, 0.1);
+}
+
+/* ---- Switch ---- */
+.gh-switch {
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--gh-control-bg);
+  border: 1px solid var(--gh-control-border);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color var(--gh-duration-fast) var(--gh-ease),
+    border-color var(--gh-duration-fast) var(--gh-ease);
+}
+
+.gh-switch:focus-visible {
+  outline: 2px solid var(--gh-focus-outline);
+  outline-offset: 2px;
+}
+
+.gh-switch:hover:not(:disabled) {
+  background-color: #eff2f5;
+}
+
+.gh-switch.is-checked {
+  background-color: var(--gh-control-checked);
+  border-color: var(--gh-control-checked);
+}
+
+.gh-switch__thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid var(--gh-control-border);
+  box-shadow: 0 1px 1px 0 rgba(31, 35, 40, 0.06), 0 1px 3px 0 rgba(31, 35, 40, 0.06);
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: transform var(--gh-duration-fast) var(--gh-ease),
+    left var(--gh-duration-fast) var(--gh-ease);
+  pointer-events: none;
+}
+
+.gh-switch.is-checked .gh-switch__thumb {
+  left: 19px;
+}
+
+.gh-switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ---- Checkbox ---- */
+.gh-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid var(--gh-control-border);
+  background-color: var(--gh-control-bg);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  transition: background-color var(--gh-duration-fast) var(--gh-ease),
+    border-color var(--gh-duration-fast) var(--gh-ease),
+    box-shadow var(--gh-duration-normal) var(--gh-ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.gh-checkbox:hover:not(:disabled) {
+  background-color: #eff2f5;
+}
+
+.gh-checkbox:focus-visible {
+  outline: 2px solid var(--gh-focus-outline);
+  outline-offset: 2px;
+}
+
+.gh-checkbox:checked {
+  background-color: var(--gh-control-checked);
+  border-color: var(--gh-control-checked);
+  color: #fff;
+}
+
+.gh-checkbox:checked::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.gh-checkbox:disabled {
+  cursor: not-allowed;
+  background-color: #eff2f5;
+  border-color: rgba(129, 139, 152, 0.15);
+  opacity: 0.8;
+}
+
+/* ---- Select ---- */
+.gh-select {
+  font-family: var(--gh-font-sans);
+  font-size: 0.875rem;
+  color: #25292e;
+  min-width: 120px;
+  min-height: 32px;
+  padding: 5px 32px 5px 12px;
+  background-color: var(--gh-control-bg);
+  border: 1px solid var(--gh-control-border);
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2359636e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  outline: none;
+  transition: border-color var(--gh-duration-fast) var(--gh-ease),
+    box-shadow var(--gh-duration-normal) var(--gh-ease);
+  box-sizing: border-box;
+}
+
+.gh-select:hover:not(:disabled) {
+  background-color: #eff2f5;
+}
+
+.gh-select:focus {
+  border-color: #818b98;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+}
+
+.gh-select:disabled {
+  background-color: #eff2f5;
+  border-color: rgba(129, 139, 152, 0.15);
+  color: #818b98;
+  cursor: not-allowed;
+}
+
+/* ---- Input text ---- */
+.gh-input {
+  font-family: var(--gh-font-sans);
+  font-size: 0.875rem;
+  color: #25292e;
+  min-height: 32px;
+  padding: 5px 12px;
+  background-color: var(--gh-control-bg);
+  border: 1px solid var(--gh-control-border);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 320px;
+  outline: none;
+  transition: border-color var(--gh-duration-fast) var(--gh-ease),
+    box-shadow var(--gh-duration-normal) var(--gh-ease);
+  box-sizing: border-box;
+}
+
+.gh-input::placeholder {
+  color: #59636e;
+}
+
+.gh-input:hover:not(:disabled) {
+  background-color: #eff2f5;
+}
+
+.gh-input:focus {
+  border-color: #818b98;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+}
+
+.gh-input:disabled {
+  background-color: #eff2f5;
+  border-color: rgba(129, 139, 152, 0.15);
+  color: #818b98;
+  cursor: not-allowed;
+}
